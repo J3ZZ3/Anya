@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+.message {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #BB86FC;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.message.fade-out {
+    opacity: 0;
+}
+
+.winner-message, .restart-button {
+    margin-top: 20px;
+    display: none;
+}
+
+.winner-message {
+    font-size: 28px;
+    color: #03DAC6;
+}
+
+.restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #BB86FC;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restart-button:hover {
+    background-color: #3700B3;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #BB86FC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #121212;
+    font-size: 24px;
+    border-radius: 8px;
+    user-select: none;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.card-front {
+    background-color: #BB86FC;
+    color: #121212;
+}
+
+.card-back {
+    background-color: #ffff00;
+    color: #121212;
+    transform: rotateY(180deg);
+}
